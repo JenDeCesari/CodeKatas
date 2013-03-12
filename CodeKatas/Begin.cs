@@ -1,30 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CodeKatas
 {
     class Begin
     {
-        private static void Main(string[] args)
+        private static void Main()
         {
-            //FizzBuzz.CalculateSimple(Convert.ToInt16(number));
-            //FizzBuzz.CalculateFunctional(Convert.ToInt16(number));
-            //FizzBuzz.CalculateJavaScript(Convert.ToInt16(number));
-            //FizzBuzz.CalculateFSharp(Convert.ToInt16(number));
-            //FizzBuzz.CalculateLINQ(Convert.ToInt16(number));
-
-            Console.WriteLine("Which program would you like to run? \n Your options are:  BowlingGame, BerlinClock, FizzBuzz, PrimeFactors or RomanNumerals");
+            Console.WriteLine("Which program would you like to run? \n Your options are: \nBowlingGame, BerlinClock, FizzBuzz, PrimeFactors or RomanNumerals");
             string answer = Console.ReadLine();
 
             switch (answer)
             {
                 case "BowlingGame":
                 case "BerlinClock":
+                    {
+                        break;
+                    }
                 case "PrimeFactors":
                     {
+                        RunPrimeFactors();
                         break;
                     }
                 case "FizzBuzz":
@@ -38,21 +32,43 @@ namespace CodeKatas
                         break;
                     }
             }
-            
         }
 
-        private static void RunFizzBuzz()
+        private static void RunPrimeFactors()
         {
-            Console.WriteLine("Which version would you like to run? \n Options are:  Simple, Functional, JavaScript, FSharp or LINQ");
+            Console.WriteLine("Which version would you like to run? \n Options are: \nSimple, Functional, JavaScript, FSharp or LINQ");
             string answer = Console.ReadLine();
 
             switch (answer)
             {
                 case "Simple":
                     {
-                        Console.WriteLine("Enter a number");
+                        Console.WriteLine("Enter a number from 1 - 600:");
                         string readIn = Console.ReadLine();
-                        RunFBSimple(readIn);
+                        RunPrimeSimple(readIn);
+                        break;
+                    }
+                case "Functional":
+                case "JavaScript":
+                case "FSharp":
+                case "LINQ":
+                    {
+                        break;
+                    }
+            }
+        }
+        private static void RunFizzBuzz()
+        {
+            Console.WriteLine("Which version would you like to run? \n Options are: \nSimple, Functional, JavaScript, FSharp or LINQ");
+            string answer = Console.ReadLine();
+
+            switch (answer)
+            {
+                case "Simple":
+                    {
+                        Console.WriteLine("Enter a number:");
+                        string readIn = Console.ReadLine();
+                        RunFbSimple(readIn);
                         break;
                     }
                 case "Functional":
@@ -67,14 +83,14 @@ namespace CodeKatas
 
         private static void RunRomanNumerals()
         {
-            Console.WriteLine("Which version would you like to run? \n Options are:  Simple, Functional, JavaScript, FSharp or LINQ");
+            Console.WriteLine("Which version would you like to run? \n Options are: \nSimple, Functional, JavaScript, FSharp or LINQ");
             string answer = Console.ReadLine();
 
             switch (answer)
             {
                 case "Simple":
                     {
-                        Console.WriteLine("Enter a number");
+                        Console.WriteLine("Enter a number:");
                         string readIn = Console.ReadLine();
                         RomanNumeralsSimple(readIn);
                         break;
@@ -89,7 +105,28 @@ namespace CodeKatas
             }
         }
 
-        private static void RunFBSimple(string readIn)
+        private static void RunPrimeSimple(string readIn)
+        {
+            if (IsNumber(readIn))
+            {
+                int number = Convert.ToInt32(readIn);
+                if (number > 600)
+                {
+                    Console.WriteLine("Only number less than 600 please");
+                }
+                else
+                {
+                    if (number < 0)
+                    {
+                        Console.Write("Only numbers greater than 0 please");
+                    }
+
+                    PrimeFactors.CalculateSimple(number);
+                }
+                
+            }
+        }
+        private static void RunFbSimple(string readIn)
         {
             if (IsNumber(readIn))
             {
