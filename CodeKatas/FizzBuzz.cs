@@ -13,16 +13,6 @@ namespace CodeKatas
         
         //Any number divisible by three is replaced by the word fizz and any 
         //divisible by five by the word buzz. Numbers divisible by both become fizzbuzz. 
-        //private static void Main(string[] args)
-        //{
-        //    string number = Console.ReadLine();
-
-        //    CalculateSimple(Convert.ToInt16(number));
-        //    CalculateFunctional(Convert.ToInt16(number));
-        //    CalculateJavaScript(Convert.ToInt16(number));
-        //    CalculateFSharp(Convert.ToInt16(number));
-        //    CalculateLINQ(Convert.ToInt16(number));
-        //}
 
         public static void CalculateSimple(int number)
         {
@@ -45,7 +35,6 @@ namespace CodeKatas
 
             Console.Write(output);
             Console.ReadKey();
-
         }
 
         public static void CalculateFunctional(int number)
@@ -78,8 +67,6 @@ namespace CodeKatas
 
             Console.WriteLine(output);
             Console.ReadKey();
-        }
-
-        
+        }        
     }
 }

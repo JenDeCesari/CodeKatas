@@ -29,7 +29,7 @@ namespace CodeKatas
                 if (x == 0)
                 {
                     output.Append(Convert.ToString(a));
-                    output.Append(" , ");
+                    output.Append(", ");
                 }
             }
             

@@ -12,8 +12,12 @@ namespace CodeKatas
             switch (answer)
             {
                 case "BowlingGame":
+                    {
+                        break;
+                    }
                 case "BerlinClock":
                     {
+                        RunBerlinClock();
                         break;
                     }
                 case "PrimeFactors":
@@ -34,6 +38,34 @@ namespace CodeKatas
             }
         }
 
+        private static void RunBerlinClock()
+        {
+            Console.WriteLine("Which version would you like to run? \n Options are: \nSimple, Functional, JavaScript, FSharp or LINQ");
+            string answer = Console.ReadLine();
+
+            switch (answer)
+            {
+                case "Simple":
+                    {
+                        Console.WriteLine("I'll need to get time information from you \n Please enter the hour, in military time:");
+                        string hour = Console.ReadLine();
+                        Console.WriteLine("Please enter the minutes:");
+                        string minutes = Console.ReadLine();
+                        Console.WriteLine("Please enter the seconds:");
+                        string seconds = Console.ReadLine();
+                        RunBerlinSimple(hour, minutes, seconds);
+                        break;
+                    }
+                case "Functional":
+                case "JavaScript":
+                case "FSharp":
+                case "LINQ":
+                    {
+                        break;
+                    }
+            }
+        }
+        
         private static void RunPrimeFactors()
         {
             Console.WriteLine("Which version would you like to run? \n Options are: \nSimple, Functional, JavaScript, FSharp or LINQ");
@@ -103,6 +135,13 @@ namespace CodeKatas
                         break;
                     }
             }
+        }
+
+        private static void RunBerlinSimple(string hour, string minutes, string seconds)
+        {
+            string t = hour + ":" + minutes + ":" + seconds;
+            DateTime time = Convert.ToDateTime(t);
+            BerlinClock.CalculateSimple(time);                        
         }
 
         private static void RunPrimeSimple(string readIn)
